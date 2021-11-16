@@ -1,0 +1,20 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: blue;
+  background-color: rgb(0, 204, 255);
+  font-size: 50px;
+}
+#board {
+  height: 100vh;
+  background-color: burlywood;
+}
+.card {
+  width: 80px;
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  border: 1px black solid;
+}
