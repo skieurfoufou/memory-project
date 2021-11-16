@@ -1,15 +1,3 @@
-const cards = [
-  { name: "A" },
-  { name: "B" },
-  { name: "C" },
-  { name: "D" },
-  { name: "E" },
-  { name: "A" },
-  { name: "B" },
-  { name: "C" },
-  { name: "D" },
-  { name: "E" },
-];
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -29,6 +17,7 @@ function shuffle(array) {
 
   return array;
 }
+
 function checkIfSameCard(card1, card2) {
   if (card1 == card2) {
     console.log(`${card1} is the same card like ${card2}`);
@@ -38,18 +27,37 @@ function checkIfSameCard(card1, card2) {
     return false;
   }
 }
+
 function checkIfSameIndex(arr, i, j) {
   return i != j && arr[i].name === arr[j].name;
 }
+
 function createCardElement(card) {
   const board = document.getElementById("board");
-  console.log(board);
   const cardElement = document.createElement("div");
   cardElement.innerHTML = card.name;
+  cardElement.classList.add("card");
   board.appendChild(cardElement);
 }
-shuffle(cards);
-console.log(cards);
-checkIfSameCard(cards[0].name, cards[1].name);
-createCardElement(cards[0]);
-createCardElement(cards[1]);
+
+// MAIN
+const cards = [
+  { name: "A" },
+  { name: "B" },
+  { name: "C" },
+  { name: "D" },
+  { name: "E" },
+  { name: "A" },
+  { name: "B" },
+  { name: "C" },
+  { name: "D" },
+  { name: "E" },
+];
+
+shuffledCards = shuffle(cards);
+console.log(shuffledCards);
+const isSameCard = checkIfSameIndex(shuffledCards, 0, 1);
+
+for (const card of shuffledCards) {
+  createCardElement(card);
+}
