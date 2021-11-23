@@ -32,32 +32,50 @@ function checkIfSameIndex(arr, i, j) {
   return i != j && arr[i].name === arr[j].name;
 }
 
-function createCardElement(card) {
+function createCardElement(idx) {
   const board = document.getElementById("board");
   const cardElement = document.createElement("div");
-  cardElement.innerHTML = card.name;
+  //cardElement.innerHTML = card.name;
+  cardElement.id = idx;
   cardElement.classList.add("card");
+  //cardElement.addEventListener("click", f);
+  cardElement.onclick = (evn) => {};
   board.appendChild(cardElement);
 }
-
-// MAIN
-const cards = [
-  { name: "A" },
-  { name: "B" },
-  { name: "C" },
-  { name: "D" },
-  { name: "E" },
-  { name: "A" },
-  { name: "B" },
-  { name: "C" },
-  { name: "D" },
-  { name: "E" },
-];
-
-shuffledCards = shuffle(cards);
-console.log(shuffledCards);
-const isSameCard = checkIfSameIndex(shuffledCards, 0, 1);
-
-for (const card of shuffledCards) {
-  createCardElement(card);
+function f() {
+  alert("you click on " + card.name);
 }
+const cardClicked = (evn) => {
+  const cardElement = evn.target;
+};
+// MAIN
+window.onload = () => {
+  const cards = [
+    { name: "A" },
+    { name: "B" },
+    { name: "C" },
+    { name: "D" },
+    { name: "E" },
+    { name: "A" },
+    { name: "B" },
+    { name: "C" },
+    { name: "D" },
+    { name: "E" },
+    { name: "F" },
+    { name: "F" },
+    { name: "G" },
+    { name: "G" },
+    { name: "H" },
+    { name: "H" },
+    { name: "I" },
+    { name: "I" },
+  ];
+
+  shuffledCards = shuffle(cards);
+  console.log(shuffledCards);
+  const isSameCard = checkIfSameIndex(shuffledCards, 0, 1);
+
+  for (const card of shuffledCards) {
+    createCardElement(card);
+  }
+};

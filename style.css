@@ -11,13 +11,22 @@ h1 {
 }
 
 #board {
-  height: 100vh;
+  height: 120vh;
   background-color: burlywood;
+  grid-template-columns: 0fr 0fr 0fr 0fr 0fr 0fr;
+  display: grid;
+  padding: 0 20px;
 }
 
 .card {
-  width: 80px;
+  width: 120px;
+  height: 150px;
+  margin: 1cm;
   background-color: cornflowerblue;
-  border-radius: 5px;
-  border: 1px black solid;
+  border-radius: 10px;
+  border: 2px black solid;
+  font-size: 300%;
+  font-display: calc();
+}
+div {
 }
