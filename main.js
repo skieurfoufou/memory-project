@@ -1,3 +1,25 @@
+const cards = [
+  { name: "A" },
+  { name: "B" },
+  { name: "C" },
+  { name: "D" },
+  { name: "E" },
+  { name: "A" },
+  { name: "B" },
+  { name: "C" },
+  { name: "D" },
+  { name: "E" },
+  { name: "F" },
+  { name: "F" },
+  { name: "G" },
+  { name: "G" },
+  { name: "H" },
+  { name: "H" },
+  { name: "I" },
+  { name: "I" },
+];
+let twoCards = [];
+
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -31,6 +53,7 @@ function checkIfSameCard(card1, card2) {
 function checkIfSameIndex(arr, i, j) {
   return i != j && arr[i].name === arr[j].name;
 }
+function turnCard(event) {}
 
 function createCardElement(idx) {
   const board = document.getElementById("board");
@@ -39,43 +62,42 @@ function createCardElement(idx) {
   cardElement.id = idx;
   cardElement.classList.add("card");
   //cardElement.addEventListener("click", f);
-  cardElement.onclick = (evn) => {};
+  cardElement.onclick = cardClicked;
   board.appendChild(cardElement);
 }
 function f() {
   alert("you click on " + card.name);
 }
-// const cardClicked = (evn) => {
-//   const cardElement = evn.target;
-// };
+const cardClicked = (evn) => {
+  const cardElement = evn.target;
+  if (twoCards.length >= 2) {
+    return;
+  }
+  let idx = cardElement.id;
+  cardElement.innerHTML = cards[idx].name;
+  cardElement.name = cards[idx].name;
+  twoCards.push(cardElement);
+  console.log(twoCards);
+  if (twoCards.length <= 1) {
+    return;
+  }
+  if (!checkIfSameIndex(twoCards, 0, 1)) {
+    setTimeout(() => {
+      twoCards.forEach((cardElement) => {
+        cardElement.innerHTML = "";
+      });
+      twoCards = [];
+    }, 1000);
+  }
+};
 // MAIN
 window.onload = () => {
-  const cards = [
-    { name: "A" },
-    { name: "B" },
-    { name: "C" },
-    { name: "D" },
-    { name: "E" },
-    { name: "A" },
-    { name: "B" },
-    { name: "C" },
-    { name: "D" },
-    { name: "E" },
-    { name: "F" },
-    { name: "F" },
-    { name: "G" },
-    { name: "G" },
-    { name: "H" },
-    { name: "H" },
-    { name: "I" },
-    { name: "I" },
-  ];
-
   shuffledCards = shuffle(cards);
   console.log(shuffledCards);
+
   const isSameCard = checkIfSameIndex(shuffledCards, 0, 1);
 
-  for (const card of shuffledCards) {
+  for (const card in shuffledCards) {
     createCardElement(card);
   }
 };
