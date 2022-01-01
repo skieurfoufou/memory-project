@@ -45,9 +45,9 @@ function createCardElement(idx) {
 function f() {
   alert("you click on " + card.name);
 }
-const cardClicked = (evn) => {
-  const cardElement = evn.target;
-};
+// const cardClicked = (evn) => {
+//   const cardElement = evn.target;
+// };
 // MAIN
 window.onload = () => {
   const cards = [

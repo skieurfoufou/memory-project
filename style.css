@@ -13,7 +13,7 @@ h1 {
 #board {
   height: 120vh;
   background-color: burlywood;
-  grid-template-columns: 0fr 0fr 0fr 0fr 0fr 0fr;
+  grid-template-columns: 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr 0fr;
   display: grid;
   padding: 0 20px;
 }
@@ -26,7 +26,7 @@ h1 {
   border-radius: 10px;
   border: 2px black solid;
   font-size: 300%;
-  font-display: calc();
+  /*font-display: calc();*/
 }
 div {
 }
